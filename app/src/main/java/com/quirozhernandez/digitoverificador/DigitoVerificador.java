@@ -1,44 +1,43 @@
 package com.quirozhernandez.digitoverificador;
 
-import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DigitoVerificador extends AppCompatActivity {
     String rutcopiar;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        final Button btn = (Button)findViewById(R.id.calcular);
-        final EditText  rut   = (EditText)findViewById(R.id.rut);
-        final TextView dv   = (TextView)findViewById(R.id.dv);
-        final TextView msg   = (TextView)findViewById(R.id.msg);
+        final Button btn = (Button) findViewById(R.id.calcular);
+        final EditText rut = (EditText) findViewById(R.id.rut);
+        final TextView dv = (TextView) findViewById(R.id.dv);
+        final TextView msg = (TextView) findViewById(R.id.msg);
         msg.setVisibility(View.INVISIBLE);
-        final TextView texto   = (TextView)findViewById(R.id.texto);
+        final TextView texto = (TextView) findViewById(R.id.texto);
         texto.setVisibility(View.INVISIBLE);
-        final TextView resultado   = (TextView)findViewById(R.id.resultado);
-        final FloatingActionButton botoncompartir = (FloatingActionButton)findViewById(R.id.compartir);
+        final TextView resultado = (TextView) findViewById(R.id.resultado);
+        final FloatingActionButton botoncompartir = (FloatingActionButton) findViewById(R.id.compartir);
         botoncompartir.setVisibility(View.INVISIBLE);
-
-
 
 
         rut.addTextChangedListener(new TextWatcher() {
@@ -53,45 +52,45 @@ public class DigitoVerificador extends AppCompatActivity {
             }
 
             @Override
-                public void afterTextChanged(Editable s) {
+            public void afterTextChanged(Editable s) {
 
-                    if (!s.toString().isEmpty()) {
-                        btn.setEnabled(true);
-                    }else{
-                        btn.setEnabled(false);
-                        texto.setVisibility(View.GONE);
-                        dv.setVisibility(View.INVISIBLE);
-                        resultado.setVisibility(View.INVISIBLE);
-                        botoncompartir.setVisibility(View.INVISIBLE);
-                        msg.setVisibility(View.INVISIBLE);
+                if (!s.toString().isEmpty()) {
+                    btn.setEnabled(true);
+                } else {
+                    btn.setEnabled(false);
+                    texto.setVisibility(View.GONE);
+                    dv.setVisibility(View.INVISIBLE);
+                    resultado.setVisibility(View.INVISIBLE);
+                    botoncompartir.setVisibility(View.INVISIBLE);
+                    msg.setVisibility(View.INVISIBLE);
 
-                }}
+                }
+            }
         });
-
 
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        rut.onEditorAction(EditorInfo.IME_ACTION_DONE);
-                        texto.setVisibility(View.VISIBLE);
-                        String resultadofinal;
-                        int resultadonumero;
-                        resultadonumero=calculaDigitoVerificador(rut.getText().toString());
-                        resultadofinal=String.valueOf(resultadonumero);
-                        if(resultadonumero==10){
-                            resultadofinal="K";
-                        }
-                        dv.setText(resultadofinal);
-                        dv.setVisibility(View.VISIBLE);
-                        botoncompartir.setVisibility(View.VISIBLE);
-                        msg.setVisibility(View.VISIBLE);
+                rut.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                texto.setVisibility(View.VISIBLE);
+                String resultadofinal;
+                int resultadonumero;
+                resultadonumero = calculaDigitoVerificador(rut.getText().toString());
+                resultadofinal = String.valueOf(resultadonumero);
+                if (resultadonumero == 10) {
+                    resultadofinal = "K";
+                }
+                dv.setText(resultadofinal);
+                dv.setVisibility(View.VISIBLE);
+                botoncompartir.setVisibility(View.VISIBLE);
+                msg.setVisibility(View.VISIBLE);
 
                 DecimalFormat decim = new DecimalFormat("#,###,###", DecimalFormatSymbols.getInstance(new Locale("es", "ES")));
                 String formattedString = decim.format(Long.valueOf(rut.getText().toString()));
-                rutcopiar=(formattedString + "-"+ resultadofinal);
+                rutcopiar = (formattedString + "-" + resultadofinal);
                 resultado.setVisibility(View.VISIBLE);
-                        resultado.setText(rutcopiar);
+                resultado.setText(rutcopiar);
             }
         });
         botoncompartir.setOnClickListener(
@@ -100,7 +99,7 @@ public class DigitoVerificador extends AppCompatActivity {
                     public void onClick(View v) {
 
                         Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-                        intent.putExtra(android.content.Intent.EXTRA_TEXT, "Obtuve el RUT: \n" +rutcopiar+"\nCon la App Dígito Verificador RUT (Chile)");
+                        intent.putExtra(android.content.Intent.EXTRA_TEXT, "Obtuve el RUT: \n" + rutcopiar + "\nCon la App Dígito Verificador RUT (Chile)");
                         intent.setType("text/plain");
                         startActivity(Intent.createChooser(intent, "Compartir a través de:"));
                     }
@@ -119,12 +118,7 @@ public class DigitoVerificador extends AppCompatActivity {
         });
 
 
-
     }
-
-
-
-
 
 
     public int calculaDigitoVerificador(String original) {
