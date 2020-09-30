@@ -99,7 +99,7 @@ public class DigitoVerificador extends AppCompatActivity {
                     public void onClick(View v) {
 
                         Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-                        intent.putExtra(android.content.Intent.EXTRA_TEXT, "Obtuve el RUT: \n" + rutcopiar + "\nCon la App Dígito Verificador RUT (Chile)");
+                        intent.putExtra(android.content.Intent.EXTRA_TEXT, "Obtuve el RUT: \n" + rutcopiar + "\nCon la App Dígito Verificador RUT (Chile), descárgala aquí:\nhttps://play.google.com/store/apps/details?id=com.quirozhernandez.digitoverificador");
                         intent.setType("text/plain");
                         startActivity(Intent.createChooser(intent, "Compartir a través de:"));
                     }
