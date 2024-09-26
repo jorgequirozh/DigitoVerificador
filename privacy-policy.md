@@ -6,11 +6,11 @@
 
 ## Introducción
 
-Esta Política de Privacidad describe cómo opera la aplicación **Dígito Verificador RUT (Chile)** y aborda la privacidad del usuario. Respetamos su privacidad y estamos comprometidos a proteger cualquier información que pueda proporcionar mientras usa nuestra aplicación.
+Esta Política de Privacidad describe cómo opera la aplicación **Dígito Verificador RUT Chileno** y aborda la privacidad del usuario. Respetamos su privacidad y estamos comprometidos a proteger cualquier información que pueda proporcionar mientras usa nuestra aplicación.
 
 ## Recopilación y Uso de Datos
 
-Queremos asegurarle que **Dígito Verificador RUT (Chile)** no recopila, accede, utiliza ni comparte ningún dato personal o sensible del usuario. La aplicación es completamente de código abierto y no requiere una conexión a internet para funcionar. Por lo tanto, no hay ninguna recopilación de datos en absoluto.
+Queremos asegurarle que **Dígito Verificador RUT Chileno** no recopila, accede, utiliza ni comparte ningún dato personal o sensible del usuario. La aplicación es completamente de código abierto y no requiere una conexión a internet para funcionar. Por lo tanto, no hay ninguna recopilación de datos en absoluto.
 
 ## Manejo de Datos
 
@@ -35,11 +35,11 @@ Podemos actualizar esta Política de Privacidad de vez en cuando. Cualquier camb
 
 ## Introduction
 
-This Privacy Policy outlines how **Dígito Verificador RUT (Chile)** app operates and addresses user privacy. We respect your privacy while using our application and are committed to protecting any information you may provide while using our application.
+This Privacy Policy outlines how **Dígito Verificador RUT Chileno** app operates and addresses user privacy. We respect your privacy while using our application and are committed to protecting any information you may provide while using our application.
 
 ## Data Collection and Usage
 
-We want to assure you that Dígito Verificador RUT (Chile) app does not collect, access, use, or share any personal or sensitive user data. The app is completely open-source and does not require an internet connection to function. As such, there is no data collection whatsoever.
+We want to assure you that Dígito Verificador RUT Chileno app does not collect, access, use, or share any personal or sensitive user data. The app is completely open-source and does not require an internet connection to function. As such, there is no data collection whatsoever.
 
 ## Data Handling
 
